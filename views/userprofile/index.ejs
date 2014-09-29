@@ -1,0 +1,35 @@
+<div class="row">
+
+    <div class="login-page-container">
+
+        <div class="boxed animated flipInY">
+            <div class="inner">
+
+                <div class="login-title text-center">
+                    <p><img src='/images/logo.png' /></p>
+                    <h4> Login with facebook </h4>
+                    <!-- <h5>We're happy to see you return</h5>-->
+
+                    <% if (error) { %>
+                    <p class='error error-message'><%= error %></p>
+                    <% } %>
+                    <!-- <ul> -->
+
+                    <!-- {?messages}
+                     <ul>
+                         {#messages}
+                             <li>{.}</li>
+                         {/messages}
+
+                     </ul>
+                 {/messages}-->
+
+                </div>
+                <a href="/auth/facebook/" class="btn btn-lg btn-success" id="submit" /> Login with Facebook </a>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>

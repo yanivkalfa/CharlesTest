@@ -1,0 +1,191 @@
+@import 'common/colors.less';
+@import 'common/responsive.less';
+
+
+/*
+@font-face {
+  font-family: 'Calvert MT Std';
+  font-style: normal;
+  font-weight: normal;
+  src: url('@{assets}/fonts/CalvertMTStd.otf') format('opentype'); //local('Calvert MT Std'),
+}
+
+@font-face {
+  font-family: 'Calvert MT Std Light';
+  font-style: normal;
+  font-weight: normal;
+  src: url('@{assets}/fonts/CalvertMTStd-Light.otf') format('opentype'); //local('Calvert MT Std Light'),
+}
+
+@font-face {
+  font-family: 'Calvert MT Std Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: url('@{assets}/fonts/CalvertMTStd-Bold.otf') format('opentype'); //local('Calvert MT Std Bold'),
+}*/
+
+// Font Styles
+.font {
+  font-family: 'Calvert MT Std', Rockwell, "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif;
+}
+
+.font-regular {
+    font-weight: 400;
+    .font;
+}
+
+.font-italic {
+    font-style: italic;
+}
+
+.font-light {
+    font-weight: 400;
+    font-family: 'Calvert MT Std Light', Rockwell, "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif;
+}
+
+
+.font-semibold {
+    font-weight: 600;
+}
+
+.font-bold {
+    font-weight: 400;
+    font-family: 'Calvert MT Std Bold', Rockwell, "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif;
+
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.no-underline {
+    text-decoration: none;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.capitalise, .capitalize {
+    text-transform: capitalize;
+}
+
+.lowercase {
+    text-transform: lowercase;
+}
+
+.transition(@time: '0.2', @easing: '') {
+    -webkit-transition: ~"all @{time}s @{easing}";
+    -moz-transition:~"all @{time}s @{easing}";
+    transition: ~"all @{time}s @{easing}";
+}
+
+.transition-delay(@time: '0.2') {
+    animation-delay: ~"@{@ime}s";
+    -webkit-animation-delay: ~"@{@ime}s"; // Safari and Chrome
+}
+
+.delay(@time: '0.2') {
+    animation-delay: ~"@{@ime}s";
+    -webkit-animation-delay: ~"@{@ime}s"; // Safari and Chrome
+}
+
+.text-center {
+    text-align: center;
+}
+
+.box-shadow {
+    -webkit-box-shadow: 0px 2px 6px rgba(50, 50, 50, 0.28);
+    -moz-box-shadow:    0px 2px 6px rgba(50, 50, 50, 0.28);
+    box-shadow:         0px 2px 6px rgba(50, 50, 50, 0.28);
+}
+
+.no-box-shadow {
+    -webkit-box-shadow: none;
+    -moz-box-shadow:    none;
+    box-shadow:         none;
+}
+
+.border-radius (@radius) {
+    border-radius: @radius;
+    -moz-border-radius: @radius;
+    -webkit-border-radius: @radius;
+}
+
+.transform-rotate (@degrees) {
+    -ms-transform: ~"rotate(@{degrees}deg)"; /* IE 9 */
+    -webkit-transform: ~"rotate(@{degrees}deg)"; /* Safari and Chrome */
+    transform: ~"rotate(@{degrees}deg)";
+}
+
+.input-shadow {
+    -webkit-box-shadow: 1px 1px 1px #666;
+}
+
+
+.font-smoothing {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.no-font-smoothing {
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+}
+
+
+.hide-select {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+}
+
+.show-select {
+    -webkit-touch-callout: auto;
+    -webkit-user-select: auto;
+    -khtml-user-select: auto;
+    -moz-user-select: auto;
+    -ms-user-select: auto;
+    user-select: auto;
+
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+.hidden-fade {
+    opacity: 0;
+}
+
+.inline {
+  display: inline !important;
+}
+
+// mobile
+
+.natural-scroll {
+    overflow-y: scroll;
+    webkit-overflow-scrolling: touch;
+}
+
+.no-natural-scroll {
+    overflow: visible;
+    webkit-overflow-scrolling: none;
+}
+
+.hardware-accelerate {
+    -webkit-transform: translate(0,0) translateZ(0);
+}
+
+:focus {
+  outline-color: transparent;
+  outline-style: none;
+}
+
+

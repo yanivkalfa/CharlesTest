@@ -1,0 +1,51 @@
+<div class="row">
+
+    <div class="login-page-container">
+
+        <div class="boxed animated flipInY">
+            <div class="inner">
+
+                <div class="login-title text-center">
+                    <p><img src='/images/logo.png' /></p>
+                    <h4>Select a package</h4>
+                    <!-- <h5>We're happy to see you return</h5>-->
+
+                    <% if (error) { %>
+                    <p class='error error-message'><%= error %></p>
+                    <% } %>
+                    <!-- <ul> -->
+
+                    <!-- {?messages}
+                     <ul>
+                         {#messages}
+                             <li>{.}</li>
+                         {/messages}
+
+                     </ul>
+                 {/messages}-->
+
+                </div>
+
+                <form method="post" name='login-form' action="/package_details" class="inline">
+                    <% _.each(packages, function (package) { %>
+                        <div class="input-group group-packages">
+                            <label class="package-label" for="package_<%= package.packageId %>"><%= package.name %></label>
+                            <% if(package.packageId.toString() == user.packageId.toString()) { %>
+                                <input name="packageId" id="package_<%= package.packageId %>" type="radio" class="packages" value="<%= package.packageId %>" data-p-name="<%= package.name %>" checked="checked"/>
+                            <% }else{ %>
+                                <input name="packageId" id="package_<%= package.packageId %>" type="radio" class="packages" value="<%= package.packageId %>" data-p-name="<%= package.name %>"/>
+                            <% } %>
+                        </div>
+                        <% }) %>
+                    <input type="submit" class="btn btn-lg btn-success" value="Login to your account" name="submit" id="submit" />
+
+                    <input type="hidden" name="_csrf" value="{_csrf}"/>
+
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>

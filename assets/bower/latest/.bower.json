@@ -1,0 +1,14 @@
+{
+  "name": "latest",
+  "_cacheHeaders": {
+    "ETag": "\"74d1702caef4be6f780400a5b4a6d94e\"",
+    "Content-Length": "20944",
+    "Content-Type": "text/html; charset=utf-8"
+  },
+  "_release": "e-tag:74d1702ca",
+  "main": "index",
+  "_source": "https://github.com/enyo/dropzone/releases/latest",
+  "_target": "*",
+  "_originalSource": "https://github.com/enyo/dropzone/releases/latest",
+  "_direct": true
+}

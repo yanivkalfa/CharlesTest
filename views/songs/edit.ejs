@@ -1,0 +1,131 @@
+<% if(typeof song !== 'undefined' && typeof song.id !== 'undefined'){ %>
+    <script>
+    songId = "<%- song.id %>";
+    savedSelection = <%- JSON.stringify(uf.getValueByKey('timeSelection', song.songMeta)) %>;
+    error = <%- JSON.stringify(error) %>
+    songParams = <%- JSON.stringify(songParams) %>
+    </script>
+<% } %>
+<div class="row breadcrumbs">
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <ul class="breadcrumbs">
+            <li><a href="#"><i class="fa fa-home"></i></a></li>
+            <li><a href="#">Songs</a></li>
+        </ul>
+    </div>
+
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
+        <a href='/upload' class="btn btn-xs btn-success" type="button"><i class="fa fa-plus"></i> New</a>
+        <a href='/upload/delSong?id=<%= song.id || '' %>' class="btn btn-xs btn-danger" type="button"><i class="fa fa-trash-o"></i> Delete</a>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="boxed no-padding col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="inner">
+            <div class="title-bar white">
+                <h3>Editing <span class="songName"><%= song.name || '' %></span></h3>
+            </div>
+
+            <div class="title-bar white wavesurferDivWrap">
+                <div id="wavesurferDiv"></div>
+
+                <div class="col-lg-12">
+                    <a href="javascript:;" class="btn btn-xs btn-success" id="playSong"><i class="fa fa-play"></i> Play</a>
+                    <a href="javascript:;" class="btn btn-xs btn-success" id="pauseSong"><i class="fa fa-pause"></i> Pause</a>
+                    <span class="selectedSectionWrap">
+                        <span class="selectedSection"># of Seconds You've selected :</span>
+                        <span class="good" id="selectedTime">0<span>
+                    </span>
+                </div>
+                <div class="songLoader">
+                    <img src="/images/loader.GIF">
+                </div>
+            </div>
+
+            <div class="col-lg-12">
+                <form method="post" id="login-form" name="login-form" action="/songs/save/" class="inline">
+                    <div class="col-lg-6">
+                        <div class="col-lg-10">
+                            <div class="title-bar white">
+                                <div class="hrSpacer"></div>
+                                <h3>Track Information</h3>
+                            </div>
+
+                            <div class="hrSpacer"></div>
+                            <div class="input-group">
+                                <span class="input-group-addon">Track Name</span>
+                                <input value="<%= song.name || songParams.name || '' %>" id="trackName" type="text" class="form-control" name="name" placeholder="Enter Track Name" />
+                            </div>
+                            <div class="hrSpacer"></div>
+
+                            <div class="input-group">
+                                <span class="input-group-addon">Album</span>
+                                <input value="<%= uf.getValueByKey('album', song.songMeta) || songParams.album || '' %>" id="albumName" type="text" class="form-control" name="album" placeholder="Enter Album Name" />
+                            </div>
+                            <div class="hrSpacer"></div>
+
+                            <div class="input-group">
+                                <span class="input-group-addon">Genre</span>
+                                <%- uf.createSelect(genres || '', 'genre', 'form-control', 'genreName', uf.getValueByKey('genre', song.songMeta) || ((songParams.genre && songParams.genre != 'false') ? songParams.genre : ''), '-- Choose a Genre --') %>
+                            </div>
+                            <div class="hrSpacer"></div>
+
+                            <div class="input-group">
+                                <span class="input-group-addon">Playlist</span>
+                                <%- uf.createSelect(playLists || '', 'playlist', 'form-control', 'playListId', listId || ((songParams.playlist && songParams.playlist != 'false') ? songParams.playlist : ''), '-- Choose a Playlist --') %>
+                            </div>
+                            <div class="hrSpacer"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="col-lg-10">
+                            <div class="title-bar white">
+                                <div class="hrSpacer"></div>
+                                <h3>Track Options</h3>
+                                <span class="toDesc ">These options are available when a user 'loves' your track</span>
+                            </div>
+
+                            <%- uf.createTrackingOptions(uf.getValueByKey('trackOptions', song.songMeta), songParams.trackOptions || "") %>
+                        </div>
+                    </div>
+
+                    <input id="songId" type="hidden" name='id' value="<%= (typeof song !== 'undefined' && typeof song.id !== 'undefined') ? song.id : '' %>"/>
+                    <input id="songLength" type="hidden" name="songLength" value=""/>
+                    <input id="timeSelection" type="hidden" name='timeSelection' value="<%= uf.getValueByKey('timeSelection', song.songMeta) || songParams.timeSelection || '' %>"/>
+
+
+                    <div class="col-lg-12">
+                        <div class="col-lg-3">
+                            <input type="submit" class="btn btn-lg btn-success" value="Update Song" name="submit" id="submit" />
+                        </div>
+
+                        <% if(sne){ %>
+                            <input type="hidden" name="sne" value="<%= sne %>" />
+                            <div class="col-lg-9">
+
+                            <% for(var i = 0; i < 5 ; i++) { %>
+                                <% if(i >= availableSne.length){break} %>
+                                <a href="/songs/edit?sne=true&id=<%= availableSne[i].id %>" class="btn btn-xs btn-success pagiSmalBot pagiHeBot" type="button"><%= i+1 %></a>
+                            <% } %>
+                            <% if( availableSne.length > i){ %>
+                                <a href="/songs/edit?sne=true&id=<%= availableSne[(availableSne.length-1)].id %>" class="btn btn-xs btn-success pagiHeBot" type="button">Last <i class="mrLeft_10 fa fa-play"></i></a>
+                            <% } %>
+
+                            <input type="hidden" name='nextId' value="<%= (typeof availableSne[0] !== 'undefined') ? availableSne[0].id : 'false' %>"/>
+                            </div>
+                        <% } %>
+
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div id="alertUser" class="alertUser alertUser_warning">
+    <i class="mrLeft_10 fa fa-warning"></i>
+    <span class="textHolder"></span>
+</div>

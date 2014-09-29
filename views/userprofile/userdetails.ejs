@@ -1,0 +1,67 @@
+<div class="row">
+
+    <div class="login-page-container">
+
+        <div class="boxed animated flipInY">
+            <div class="inner">
+
+                <div class="login-title text-center">
+                    <p><img src='/images/logo.png' /></p>
+                    <h4>Create new account</h4>
+                    <!-- <h5>We're happy to see you return</h5>-->
+
+                    <% if (error) { %>
+                    <p class='error error-message'><%= error %></p>
+                    <% } %>
+                    <!-- <ul> -->
+
+                    <!-- {?messages}
+                     <ul>
+                         {#messages}
+                             <li>{.}</li>
+                         {/messages}
+
+                     </ul>
+                 {/messages}-->
+
+                </div>
+
+
+                <form method="post" name='login-form' action="/user_details" class="inline">
+
+
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                        <input value="<%= user.firstName || "" %>" id="user-firstName" type="text" class="form-control" name='user[firstName]' placeholder="First Name" />
+                    </div>
+
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                        <input value="<%= user.lastName || "" %>" id="user-lastName" type="text" class="form-control" name='user[lastName]' placeholder="Last Name" />
+                    </div>
+
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-music"></i></span>
+                        <input value="<%= userMeta.bandName || "" %>" id="userMeta-bandName" type="text" class="form-control" name='userMeta[bandName]' placeholder="Band Name" />
+                    </div>
+
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
+                        <input value="<%= user.email || "" %>" id="user-email" type="text" class="form-control" name='user[email]' placeholder="Email" />
+                    </div>
+
+                    <div class="input-group">
+                        <input <%= (user.registrationProcessStatus >= 2) ? 'checked=checked' : "" %> id="t_n_c" type="checkbox" name='t_n_c' class="form-control"  style="margin-top: 0px; width: auto; height: auto; float: none;" />
+                        <label for="t_n_c" style="display:inline-block;">I accept terms & Conditions</label>
+                    </div>
+                    <input type="submit" class="btn btn-lg btn-success" value="Login to your account" name="submit" id="submit" />
+
+                    <input type="hidden" name="_csrf" value="{_csrf}"/>
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>

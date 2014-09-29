@@ -1,0 +1,88 @@
+<div class="row">
+    <div class="boxed no-padding col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="inner">
+            <div class="title-bar white">
+                <h3>Upload Songs</h3>
+            </div>
+
+            <div class="dropZoneUploader"></div>
+
+            <div id="actions" class="row actionsTemplate displayNone">
+                <div class="col-lg-12">
+                    <div class="dropZone col-lg-12"> Drop a file to upload or click Add files... </div>
+
+                    <div class="col-lg-7">
+                        <span class="fileupload-process">
+                            <div id="total-progress" class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                                <div class="progress-bar progress-bar-success" style="width:0%;" data-dz-uploadprogress=""></div>
+                            </div>
+                        </span>
+                    </div>
+
+
+                    <div class="col-lg-5" style="padding-left: 8.4%;">
+                        <span class="btn btn-success fileinput-button dz-clickable">
+                            <i class="glyphicon glyphicon-plus"></i>
+                            <span>Add files...</span>
+                        </span>
+                        <button type="submit" class="btn btn-primary start">
+                            <i class="glyphicon glyphicon-upload"></i>
+                            <span>Start upload</span>
+                        </button>
+                        <button type="reset" class="btn btn-warning cancel">
+                            <i class="glyphicon glyphicon-ban-circle"></i>
+                            <span>Cancel upload</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="table table-striped" class="files" id="previews"></div>
+
+            <div id="template" class="file-row displayNone">
+                <!-- This is used as the file preview template -->
+                <div>
+                    <span class="preview"><img data-dz-thumbnail /></span>
+                </div>
+                <div>
+                    <p class="name" data-dz-name></p>
+                    <strong class="error text-danger" data-dz-errormessage></strong>
+                </div>
+                <div>
+                    <p class="size" data-dz-size></p>
+                    <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                        <div class="progress-bar progress-bar-success" style="width:0%;" data-dz-uploadprogress></div>
+                    </div>
+                </div>
+                <div>
+                    <button class="btn btn-primary start">
+                        <i class="glyphicon glyphicon-upload"></i>
+                        <span>Start</span>
+                    </button>
+                    <button data-dz-remove class="btn btn-warning cancel">
+                        <i class="glyphicon glyphicon-ban-circle"></i>
+                        <span>Cancel</span>
+                    </button>
+                    <button data-dz-remove class="btn btn-danger delete">
+                        <i class="glyphicon glyphicon-trash"></i>
+                        <span>Delete</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="col-lg-12 fallbackUploadTemplate displayNone">
+                <div class="dz-message"><span>Your browser does not support drag'n'drop file uploads.</span></div>
+                <form class="fallbackUploadForm" action="/target-url" enctype="multipart/form-data" method="post">
+                    <div class="dz-fallback">
+                        <p>Please use the fallback form below to upload your files like in the olden days.</p>
+                        <input name="fallback" type="hidden" value="true">
+                        <input class="fileInput" name="file" multiple="multiple" type="file">
+                        <input value="Upload!" type="submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

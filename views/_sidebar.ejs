@@ -1,0 +1,85 @@
+    <!-- Sidebar Start -->
+    <div class="sidebar">
+
+        <!-- Logo Start -->
+        <a href="index.html">
+            <div class="logo-container" id="step1">
+                <img src='/images/logo.png' />
+                <h4>admin template</h4>
+            </div>
+        </a>
+        <!-- Logo End -->
+
+        <!-- Sidebar User Profile Start -->
+        <div class="sidebar-profile">
+          <div class="user-avatar">
+            <% imgSrc = uf.getValueByKey('userPhoto', userMeta) %>
+            <img src="<%= (imgSrc) ? imgSrc : "/images/Man_Silhouette.png" %>" alt="<%= user.firstName + ' ' + user.lastName %>" />
+          </div>
+          <div class="user-info">
+            <a href="/user_details"><%= user.firstName + ' ' + user.lastName %></a>
+          </div>
+        </div>
+
+        <div class="responsive-menu">
+            <a href="#"><i class="fa fa-bars"></i></a>
+        </div>
+        <!-- Sidebar User Profile End -->
+
+        <!-- Menu Start -->
+        <ul class="menu">
+            <li class="lightblue">
+                <a href="/upload">
+                    <span class="menu-icon"><i class="fa fa-home"></i></span>
+                    <span class="menu-text">Upload</span>
+                </a>
+            </li>
+
+            <li class="parent purple">
+                <a href="/playlist">
+                    <span class="menu-icon"><i class="fa fa-folder-open"></i></span>
+                    <span class="menu-text">playlist</span>
+                </a>
+                <ul class="child">
+                    <li>
+                        <a href="/playlists"><i class='fa fa-user'></i>Play Lists</a>
+                    </li>
+                    <li>
+                        <a href="/songs"><i class='fa fa-tag'></i>Songs</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="lightblue">
+                <a href="/stats">
+                    <span class="menu-icon"><i class="fa fa-home"></i></span>
+                    <span class="menu-text">Stats</span>
+                </a>
+            </li>
+
+            <li class="parent purple">
+                <a href="">
+                    <span class="menu-icon"><i class="fa fa-folder-open"></i></span>
+                    <span class="menu-text">Account</span>
+                </a>
+                <ul class="child">
+                    <li>
+                        <a href="/user_details"><i class='fa fa-user'></i>User Details</a>
+                    </li>
+                    <li>
+                        <a href="/package_details"><i class='fa fa-tag'></i>Packages</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="lightblue">
+                <a href="/logout">
+                    <span class="menu-icon"><i class="fa fa-home"></i></span>
+                    <span class="menu-text">Logout</span>
+                </a>
+            </li>
+        </ul>
+        <!-- Menu End -->
+
+    </div>
+    <!-- Sidebar End -->
