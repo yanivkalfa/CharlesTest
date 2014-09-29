@@ -14,81 +14,82 @@
 
 module.exports.session = {
 
-  /***************************************************************************
-  *                                                                          *
-  * Session secret is automatically generated when your new app is created   *
-  * Replace at your own risk in production-- you will invalidate the cookies *
-  * of your users, forcing them to log in again.                             *
-  *                                                                          *
-  ***************************************************************************/
-  secret: '8fcfd181e1a956c02e775036ebc5187f',
+    /***************************************************************************
+     *                                                                          *
+     * Session secret is automatically generated when your new app is created   *
+     * Replace at your own risk in production-- you will invalidate the cookies *
+     * of your users, forcing them to log in again.                             *
+     *                                                                          *
+     ***************************************************************************/
+    secret: '8fcfd181e1a956c02e775036ebc5187f',
 
 
-  /***************************************************************************
-  *                                                                          *
-  * Set the session cookie expire time The maxAge is set by milliseconds,    *
-  * the example below is for 24 hours                                        *
-  *                                                                          *
-  ***************************************************************************/
+    /***************************************************************************
+     *                                                                          *
+     * Set the session cookie expire time The maxAge is set by milliseconds,    *
+     * the example below is for 24 hours                                        *
+     *                                                                          *
+     ***************************************************************************/
 
-  // cookie: {
-  //   maxAge: 24 * 60 * 60 * 1000
-  // }
+    // cookie: {
+    //   maxAge: 24 * 60 * 60 * 1000
+    // }
 
-  /***************************************************************************
-  *                                                                          *
-  * In production, uncomment the following lines to set up a shared redis    *
-  * session store that can be shared across multiple Sails.js servers        *
-  ***************************************************************************/
+    /***************************************************************************
+     *                                                                          *
+     * In production, uncomment the following lines to set up a shared redis    *
+     * session store that can be shared across multiple Sails.js servers        *
+     ***************************************************************************/
 
-  // adapter: 'redis',
+    // adapter: 'redis',
 
-  /***************************************************************************
-  *                                                                          *
-  * The following values are optional, if no options are set a redis         *
-  * instance running on localhost is expected. Read more about options at:   *
-  * https://github.com/visionmedia/connect-redis                             *
-  *                                                                          *
-  *                                                                          *
-  ***************************************************************************/
+    /***************************************************************************
+     *                                                                          *
+     * The following values are optional, if no options are set a redis         *
+     * instance running on localhost is expected. Read more about options at:   *
+     * https://github.com/visionmedia/connect-redis                             *
+     *                                                                          *
+     *                                                                          *
+     ***************************************************************************/
 
-  // host: 'localhost',
-  // port: 6379,
-  // ttl: <redis session TTL in seconds>,
-  // db: 0,
-  // pass: <redis auth password>
-  // prefix: 'sess:'
-
-
-  /***************************************************************************
-  *                                                                          *
-  * Uncomment the following lines to use your Mongo adapter as a session     *
-  * store                                                                    *
-  *                                                                          *
-  ***************************************************************************/
-
-  adapter: 'mongo',
-  auto_reconnect: true,
-  // host: 'localhost',
-  // port: 27017,
-  db: 'sails',
-  collection: 'sessions',
-  url: 'mongodb://heroku_app26503043:evh38ktdp08ga11jh8lsl4rim6@dbh61.mongolab.com:27617/heroku_app26503043'
+    // host: 'localhost',
+    // port: 6379,
+    // ttl: <redis session TTL in seconds>,
+    // db: 0,
+    // pass: <redis auth password>
+    // prefix: 'sess:'
 
 
-  /***************************************************************************
-  *                                                                          *
-  * Optional Values:                                                         *
-  *                                                                          *
-  * # Note: url will override other connection settings url:                 *
-  * 'mongodb://user:pass@host:port/database/collection',                     *
-  *                                                                          *
-  ***************************************************************************/
+    /***************************************************************************
+     *                                                                          *
+     * Uncomment the following lines to use your Mongo adapter as a session     *
+     * store                                                                    *
+     *                                                                          *
+     ***************************************************************************/
 
-  // username: '',
-  // password: '',
-  // auto_reconnect: false,
-  // ssl: false,
-  // stringify: true
+    adapter     : 'mongo',
+    host        : 'localhost',
+    port        : 27017,
+    user        : 'testDB',
+    password    : 'abc123',
+    db          : 'testDB',
+    collection  : 'sessions',
+    auto_reconnect: true
+
+
+    /***************************************************************************
+     *                                                                          *
+     * Optional Values:                                                         *
+     *                                                                          *
+     * # Note: url will override other connection settings url:                 *
+     * 'mongodb://user:pass@host:port/database/collection',                     *
+     *                                                                          *
+     ***************************************************************************/
+
+    // username: '',
+    // password: '',
+    // auto_reconnect: false,
+    // ssl: false,
+    // stringify: true
 
 };

@@ -26,33 +26,7 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-  // '*': true,
-  /*
-  '*': "authenticated",
-  UserController: {
-    "create": true,
-  },
-  AuthController: {
-    '*': true,
-  }*/
-
-  '*': 'sessionAuth',
-
-  'dashboard': {
-    '*': ['sessionAuth', 'regStatusThree']
-  },
-
-  'auth': {
-    '*': true
-  },
-
-  'userprofile': {
-    index: true,
-    userDetails : ['sessionAuth', 'regStatusOne'],
-    processUserDetails : ['sessionAuth', 'regStatusOne'],
-    packageDetails : ['sessionAuth', 'regStatusTwo'],
-    processPackageDetails : ['sessionAuth', 'regStatusTwo']
-  }
+  //'*': 'sessionAuth'
 
   /***************************************************************************
   *                                                                          *

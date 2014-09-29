@@ -33,86 +33,8 @@ module.exports.routes = {
      ***************************************************************************/
 
     '/': {
-        controller: 'dashboard',
+        controller: 'main',
         action : "index"
-    },
-
-    'get /upload': {
-        controller: 'upload',
-        action : "index"
-    },
-
-    'post /upload': {
-        controller: 'upload',
-        action : "upload"
-    },
-
-    '/upload/delSong': {
-        controller: 'upload',
-        action : "delSong"
-    },
-
-    '/songs': {
-        controller: 'songs',
-        action : "index"
-    },
-
-    '/songs/play': {
-        controller: 'songs',
-        action : "play"
-    },
-
-    'get /songs/edit': {
-        controller: 'songs',
-        action : "edit"
-    },
-
-    'post /songs/save': {
-        controller: 'songs',
-        action : "save"
-    },
-
-    'post /playlists/save': {
-        controller: 'playlists',
-        action : "save"
-    },
-
-    'get /auth/facebook': {
-        controller: 'auth',
-        action : "facebookLogin"
-    },
-
-    'get /auth/facebook/callback': {
-        controller: 'auth',
-        action : "facebookProcess"
-    },
-
-    'get /login': {
-        controller: 'userProfile',
-        action : "index"
-    },
-    'get /user_details': {
-        controller: 'userProfile',
-        action : "userDetails"
-    },
-    'post /user_details': {
-        controller: 'userProfile',
-        action : "processUserDetails"
-    },
-
-    'get /package_details': {
-        controller: 'userProfile',
-        action : "packageDetails"
-    },
-    'post /package_details': {
-        controller: 'userProfile',
-        action : "processPackageDetails"
-    },
-
-
-    'get /logout': {
-        controller: 'auth',
-        action : "logout"
     }
 
     //auth/facebook/callback

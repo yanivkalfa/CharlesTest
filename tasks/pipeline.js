@@ -14,30 +14,8 @@
 //  to change `assets/styles/importer.less` instead.)
 
 var cssFilesToInject = [
-
-    '/lib/bootstrap/css/bootstrap.css',
-    '/lib/font-awesome/css/font-awesome.min.css',
-    '/lib/weather-icons/weather-icons.min.css',
-    '/lib/effects/menu-effects.css',
-    'http://fonts.googleapis.com/css?family=Lobster',//Google Fonts
-    'http://fonts.googleapis.com/css?family=Lato:400,100italic,100,300italic,300,400italic,700,700italic,900,900italic',//Google Fonts
-
-    //Assets
-    '/lib/jquery-ui/ui-lightness/jquery-ui-1.10.3.custom.css',
-    '/lib/morrischarts/morris.css',
-    '/lib/fullcalendar/fullcalendar.css',
-    '/lib/datatables/jquery.dataTables.css',
-    '/lib/icheck/flat/_all.css',
-    '/bower/dropzone/downloads/css/dropzone.css',
-
-    // Theme Styles
-    '/styles/theme/styles-less.css',
-    '/styles/theme/responsive.css',
-    '/styles/theme/animate.css',
-
     //'styles/**/*.css',
-
-    '/styles/main.css'
+    '/styles/theme/styles-less.css'
 
 ];
 
@@ -51,35 +29,16 @@ var jsFilesToInject = [
 
     // custom loaded scripts start
     '/bower/jquery/dist/jquery.min.js',
-    '/bower/jquery.textarea.autoresize/js/jquery.textarea.autoresize.js',
-    '/bower/dropzone/downloads/dropzone.js',
-    '/lib/nicescroll/jquery.nicescroll.min.js',// Custom Scroll Bar
-    '/lib/bootstrap/js/bootstrap.min.js',
-    '/lib/charts/table-to-chart.js',
-    '/lib/fullcalendar/fullcalendar.min.js',
-    '/lib/fullcalendar/gcal.js',
-    '/lib/sidebar/min-height.js',
-    '/lib/datatables/jquery.dataTables.min.js',// DataTables
-    '/lib/jquery-ui/jquery-ui-1.10.3.custom.min.js',// jQuery UI
-    '/lib/icheck/icheck.js',// iCheck
-    '/lib/_demo/icheck/icheck.js',// Dashboard Charts
-    '/lib/_demo/charts/dashboard.js',// Dashboard Charts
-    '/lib/_demo/all-pages.js',// Dashboard Charts
 
     '/js/_customers.js',
     '/js/app.js',
-    //'/js/dropzone.js',
     '/js/init.js',
     '/js/moment.js',
     '/js/moment-timezone.js',
     '/js/sails.io.js',
     '/js/socket.io.js',
     '/js/test.js',
-    '/js/utilFunc.js',
-    '/js/wavesurfer.min.js',
-    '/js/songInit.js',
-    '/js/playListInit.js'
-
+    '/js/utilFunc.js'
 
     // custom loaded scripts End
 

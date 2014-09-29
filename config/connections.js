@@ -21,99 +21,93 @@
 
 module.exports.connections = {
 
-  /***************************************************************************
-  *                                                                          *
-  * Local disk storage for DEVELOPMENT ONLY                                  *
-  *                                                                          *
-  * Installed by default.                                                    *
-  *                                                                          *
-  ***************************************************************************/
-  localDiskDb: {
-    adapter: 'sails-disk'
-  },
+    /***************************************************************************
+     *                                                                          *
+     * Local disk storage for DEVELOPMENT ONLY                                  *
+     *                                                                          *
+     * Installed by default.                                                    *
+     *                                                                          *
+     ***************************************************************************/
+    localDiskDb: {
+        adapter: 'sails-disk'
+    },
 
 
-  /***************************************************************************
-   *                                                                          *
-   * mongo database remote server                                             *
-   *                                                                          *
-   * Run: npm install sails-mongo                                             *
-   *                                                                          *
-   ***************************************************************************/
-  mongoSails: {
-    adapter     : 'sails-mongo',
-    url: 'mongodb://heroku_app26503043:evh38ktdp08ga11jh8lsl4rim6@dbh61.mongolab.com:27617/heroku_app26503043'
+    /***************************************************************************
+     *                                                                          *
+     * mongo database remote server                                             *
+     *                                                                          *
+     * Run: npm install sails-mongo                                             *
+     *                                                                          *
+     ***************************************************************************/
+    mongoSails: {
+        adapter     : 'sails-mongo',
+        host        : 'localhost',
+        port        : 27017,
+        user        : 'testDB',
+        password    : 'abc123',
+        db          : 'testDB'
+    }
+
+    /***************************************************************************
+     *                                                                          *
+     * MySQL is the world's most popular relational database.                   *
+     * http://en.wikipedia.org/wiki/MySQL                                       *
+     *                                                                          *
+     * Run: npm install sails-mysql                                             *
+     *                                                                          *
+     ***************************************************************************/
     /*
-    host        : 'dbh61.mongolab.com',
-    port        : 27617,
-    user        : 'heroku_app26503043',
-    password    : 'evh38ktdp08ga11jh8lsl4rim6',
-    database    : 'heroku_app26503043'
-    */
+     someMysqlServer: {
+     adapter: 'sails-mysql',
+     host: 'YOUR_MYSQL_SERVER_HOSTNAME_OR_IP_ADDRESS',
+     user: 'YOUR_MYSQL_USER',
+     password: 'YOUR_MYSQL_PASSWORD',
+     database: 'YOUR_MYSQL_DB'
+     },
+     */
 
+    /***************************************************************************
+     *                                                                          *
+     * MongoDB is the leading NoSQL database.                                   *
+     * http://en.wikipedia.org/wiki/MongoDB                                     *
+     *                                                                          *
+     * Run: npm install sails-mongo                                             *
+     *                                                                          *
+     ***************************************************************************/
+    /* someMongodbServer: {
+     adapter: 'sails-mongo',
+     host: 'localhost',
+     port: 27017,
+     // user: 'username',
+     // password: 'password',
+     // database: 'your_mongo_db_name_here'
+     },
+     */
 
-    //url: 'mongodb://heroku_app26503043:evh38ktdp08ga11jh8lsl4rim6@dbh61.mongolab.com:27617/heroku_app26503043'
-  },
+    /***************************************************************************
+     *                                                                          *
+     * PostgreSQL is another officially supported relational database.          *
+     * http://en.wikipedia.org/wiki/PostgreSQL                                  *
+     *                                                                          *
+     * Run: npm install sails-postgresql                                        *
+     *                                                                          *
+     *                                                                          *
+     ***************************************************************************/
+    /*
+     somePostgresqlServer: {
+     adapter: 'sails-postgresql',
+     host: 'YOUR_POSTGRES_SERVER_HOSTNAME_OR_IP_ADDRESS',
+     user: 'YOUR_POSTGRES_USER',
+     password: 'YOUR_POSTGRES_PASSWORD',
+     database: 'YOUR_POSTGRES_DB'
+     }
+     */
 
-  /***************************************************************************
-  *                                                                          *
-  * MySQL is the world's most popular relational database.                   *
-  * http://en.wikipedia.org/wiki/MySQL                                       *
-  *                                                                          *
-  * Run: npm install sails-mysql                                             *
-  *                                                                          *
-  ***************************************************************************/
-  /*
-  someMysqlServer: {
-    adapter: 'sails-mysql',
-    host: 'YOUR_MYSQL_SERVER_HOSTNAME_OR_IP_ADDRESS',
-    user: 'YOUR_MYSQL_USER',
-    password: 'YOUR_MYSQL_PASSWORD',
-    database: 'YOUR_MYSQL_DB'
-  },
-  */
-
-  /***************************************************************************
-  *                                                                          *
-  * MongoDB is the leading NoSQL database.                                   *
-  * http://en.wikipedia.org/wiki/MongoDB                                     *
-  *                                                                          *
-  * Run: npm install sails-mongo                                             *
-  *                                                                          *
-  ***************************************************************************/
- /* someMongodbServer: {
-    adapter: 'sails-mongo',
-    host: 'localhost',
-    port: 27017,
-    // user: 'username',
-    // password: 'password',
-    // database: 'your_mongo_db_name_here'
-  },
-  */
-
-  /***************************************************************************
-  *                                                                          *
-  * PostgreSQL is another officially supported relational database.          *
-  * http://en.wikipedia.org/wiki/PostgreSQL                                  *
-  *                                                                          *
-  * Run: npm install sails-postgresql                                        *
-  *                                                                          *
-  *                                                                          *
-  ***************************************************************************/
-  /*
-  somePostgresqlServer: {
-    adapter: 'sails-postgresql',
-    host: 'YOUR_POSTGRES_SERVER_HOSTNAME_OR_IP_ADDRESS',
-    user: 'YOUR_POSTGRES_USER',
-    password: 'YOUR_POSTGRES_PASSWORD',
-    database: 'YOUR_POSTGRES_DB'
-  }
-  */
-
-  /***************************************************************************
-  *                                                                          *
-  * More adapters: https://github.com/balderdashy/sails                      *
-  *                                                                          *
-  ***************************************************************************/
+    /***************************************************************************
+     *                                                                          *
+     * More adapters: https://github.com/balderdashy/sails                      *
+     *                                                                          *
+     ***************************************************************************/
 
 };
