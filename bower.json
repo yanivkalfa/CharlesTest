@@ -1,0 +1,31 @@
+{
+  "name": "bower",
+  "version": "0.0.0",
+  "homepage": "https://github.com/yanivkalfa/CharlesTest",
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "authors": [
+    "yaniv"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "assets/bower",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "angulerjs": "~1.2.25",
+    "jquery-ui": "~1.11.1",
+    "angular-sanitize": "~1.2.25",
+    "moment": "~2.8.3",
+    "moment-timezone": "~0.2.2"
+  }
+}
