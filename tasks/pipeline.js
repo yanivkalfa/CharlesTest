@@ -29,12 +29,13 @@ var jsFilesToInject = [
 
     // custom loaded scripts start
     '/bower/jquery/dist/jquery.min.js',
+    '/bower/jquery-ui/jquery-ui.min.js',
+    '/bower/angular/angular.min.js',
+    '/bower/angular-sanitize/angular-sanitize.min.js',
 
     '/js/_customers.js',
     '/js/app.js',
     '/js/init.js',
-    '/js/moment.js',
-    '/js/moment-timezone.js',
     '/js/sails.io.js',
     '/js/socket.io.js',
     '/js/test.js',
