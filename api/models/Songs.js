@@ -21,18 +21,6 @@ module.exports = {
 
         order : {
             type: 'integer'
-        },
-
-        songMeta : {
-            collection: 'SongsMeta',
-            via: 'owner'
-        },
-
-        playLists: {
-            collection: 'playLists',
-            via: 'songs',
-            dominant:true
         }
     }
-
 };

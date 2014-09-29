@@ -18,10 +18,6 @@ module.exports = {
         metaValue : {
             type: 'json'
         },
-
-        owner : {
-            model:'Songs'
-        }
     }
 
     /*
