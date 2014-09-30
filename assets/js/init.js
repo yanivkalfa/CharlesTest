@@ -49,13 +49,11 @@
         this.getData = function (resourceName) { return _data[resourceName]; };
     }
 
-    function PageController($scope, api) {}
-
-
+    function charlesTestCtrl($scope, api) {}
 
     angular.module('CharlesTest', ['ng'])
         .service('api', [api])
-        .controller('PageController', ["$scope","api", PageController]);
+        .controller('charlesTestCtrl', ["$scope","api", charlesTestCtrl]);
 
 
 
