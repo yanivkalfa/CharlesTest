@@ -11,38 +11,34 @@
             var searchTerm = $scope.searchTerm.search;
             var searchTermToLower = $scope.searchTerm.search.toLowerCase();
 
-            if(angular.isArray(results.data.brands)){
-                results.data.brands.forEach(function(brand){
-                    var startPosition = searchTermToLower.indexOf(brand),
-                        endPosition = brand.length,
-                        stringStart = '',
-                        stringEnd = '',
-                        foundBrand = '';
+            if(results.data.brand != ''){
+                var startPosition = searchTermToLower.indexOf(results.data.brand),
+                    endPosition = results.data.brand.length,
+                    stringStart = '',
+                    stringEnd = '',
+                    foundBrand = '';
 
-                    if(startPosition > -1){
-                        stringStart = searchTerm.slice(0,startPosition);
-                        foundBrand = searchTerm.slice(startPosition,endPosition);
-                        stringEnd = searchTerm.slice(endPosition,-1);
-                        searchTerm = stringStart + '<strong>' + foundBrand + '</strong>' + stringEnd;
-                    }
-                });
+                if(startPosition > -1){
+                    stringStart = searchTerm.slice(0,startPosition);
+                    foundBrand = searchTerm.slice(startPosition,endPosition);
+                    stringEnd = searchTerm.slice(endPosition,-1);
+                    searchTerm = stringStart + '<strong>' + foundBrand + '</strong>' + stringEnd;
+                }
             }
 
-            if(angular.isArray(results.data.clothingTypes)){
-                results.data.clothingTypes.forEach(function(clothingType){
-                    var startPosition = searchTermToLower.indexOf(clothingType),
-                        endPosition = clothingType.length,
-                        stringStart = '',
-                        stringEnd = '',
-                        foundBrand = '';
+            if(results.data.clothingType != ''){
+                var startPosition = searchTermToLower.indexOf(results.data.clothingType),
+                    endPosition = results.data.clothingType.length,
+                    stringStart = '',
+                    stringEnd = '',
+                    foundBrand = '';
 
-                    if(startPosition > -1){
-                        stringStart = searchTerm.slice(0,startPosition);
-                        foundBrand = searchTerm.slice(startPosition,endPosition);
-                        stringEnd = searchTerm.slice(endPosition,-1);
-                        searchTerm = stringStart + '<strong>' + foundBrand + '</strong>' + stringEnd;
-                    }
-                })
+                if(startPosition > -1){
+                    stringStart = searchTerm.slice(0,startPosition);
+                    foundBrand = searchTerm.slice(startPosition,endPosition);
+                    stringEnd = searchTerm.slice(endPosition,-1);
+                    searchTerm = stringStart + '<strong>' + foundBrand + '</strong>' + stringEnd;
+                }
             }
 
             return searchTerm;

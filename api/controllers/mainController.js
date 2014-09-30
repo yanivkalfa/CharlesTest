@@ -27,7 +27,7 @@ module.exports = {
         if(!search) return res.json({data : "", status : false});
         search = search.toLowerCase();
 
-        var results = {"brands" : '', "clothingTypes" : ''};
+        var results = {"brand" : '', "clothingType" : ''};
 
         Brands.find().then(function(brands){
             ClothingTypes.find().then(function(clothingTypes){
@@ -36,7 +36,7 @@ module.exports = {
                 for(i = 0; i < brands.length; i++) {
                     if (search.indexOf(brands[i].nameToLower) > -1){
                         if(brands[i].nameToLower.length > prevLength){
-                            results.brands = brands[i].nameToLower;
+                            results.brand = brands[i].nameToLower;
                         }
                         prevLength = brands[i].nameToLower.length;
                     }
@@ -45,7 +45,7 @@ module.exports = {
                 for(i = 0; i < clothingTypes.length; i++) {
                     if (search.indexOf(clothingTypes[i].nameToLower) > -1){
                         if(clothingTypes[i].nameToLower.length > prevLength){
-                            results.clothingTypes = clothingTypes[i].nameToLower;
+                            results.clothingType = clothingTypes[i].nameToLower;
                         }
                         prevLength = clothingTypes[i].nameToLower.length;
                     }
