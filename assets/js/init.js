@@ -44,7 +44,7 @@
                 })
             }
 
-            return searchTerm.join(" ");
+            return searchTerm;
         };
 
         $scope.fetch = function(search) {
