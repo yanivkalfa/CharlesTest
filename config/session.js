@@ -82,7 +82,7 @@ module.exports.session = {
     // port: 27017,
     db: 'sails',
     collection: 'sessions',
-    url: 'mongodb://heroku_app26503043:evh38ktdp08ga11jh8lsl4rim6@dbh61.mongolab.com:27617/heroku_app26503043'
+    url: 'mongodb://testDB:abc123@localhost:27617/testDB'
 
 
 
