@@ -43,5 +43,20 @@ module.exports.bootstrap = function(cb) {
         if(err) console.log(err);
     });
 
+
+    Brands.find().then(function(bands){
+        bands.map(function(band){
+            band.nameToLower = band.name.toLowerCase();
+            band.save(function(err) {if(err)console.log(err);});
+        })
+    });
+
+    ClothingTypes.find().then(function(ClothingTypes){
+        ClothingTypes.map(function(ClothingType){
+            ClothingType.nameToLower = ClothingType.name.toLowerCase();
+            ClothingType.save(function(err) {if(err)console.log(err);});
+        })
+    });
+
     cb();
 };
