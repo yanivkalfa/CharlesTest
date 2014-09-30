@@ -50,11 +50,11 @@
 
     function PageController($scope, api) {}
 
-
+/*
     angular.module('app', ['ng'])
         .service('api', [api])
         .controller('PageController', ["$scope","api", PageController]);
-
+*/
 
 
 }).call(window && typeof window.document !== 'undefined' ? window : global);
