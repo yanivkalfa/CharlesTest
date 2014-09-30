@@ -7,6 +7,7 @@
         var url = '/search';
 
         var handleResults = function(results){
+            console.log(results);
             var searchTerm = $scope.searchTerm.search;
             var searchTermToLower = $scope.searchTerm.search.toLowerCase();
 

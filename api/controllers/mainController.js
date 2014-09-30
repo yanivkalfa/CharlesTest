@@ -27,24 +27,31 @@ module.exports = {
         if(!search) return res.json({data : "", status : false});
         search = search.toLowerCase();
 
-        var results = {"brands" : [], "clothingTypes" : []};
+        var results = {"brands" : '', "clothingTypes" : ''};
 
-        Brands.find({nameToLower : {'like' :  search + '%'}}).then(function(brands){
-            console.log(brands);
+        Brands.find().then(function(brands){
             ClothingTypes.find().then(function(clothingTypes){
-                var i = 0;
+                var i = 0, prevLength = 0, index;
 
                 for(i = 0; i < brands.length; i++) {
                     if (search.indexOf(brands[i].nameToLower) > -1){
-                        results.brands.push(brands[i].nameToLower);
+                        if(brands[i].length > prevLength){
+                            index = i;
+                        }
+                        prevLength = brands[i].length;
                     }
                 }
+                results.brands = brands[index].nameToLower;
 
                 for(i = 0; i < clothingTypes.length; i++) {
                     if (search.indexOf(clothingTypes[i].nameToLower) > -1){
-                        results.clothingTypes.push(clothingTypes[i].nameToLower);
+                        if(clothingTypes[i].length > prevLength){
+                            index = i;
+                        }
+                        prevLength = clothingTypes[i].length;
                     }
                 }
+                results.clothingTypes = clothingTypes[index].nameToLower;
 
                 return res.json({data : results, status : true});
 
