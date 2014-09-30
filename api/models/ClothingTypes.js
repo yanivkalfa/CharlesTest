@@ -10,14 +10,9 @@ module.exports = {
 
     attributes: {
 
-        metaKey : {
-            type: 'string',
-            required: true
-        },
-
-        metaValue : {
-            type: 'json'
-        },
+        name : {
+            type: 'string'
+        }
     }
 
     /*

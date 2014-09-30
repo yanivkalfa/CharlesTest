@@ -10,7 +10,21 @@
  */
 
 module.exports.bootstrap = function(cb) {
-  // It's very important to trigger this callback method when you are finished
-  // with the bootstrap!  (otherwise your server will never lift, since it's waiting on the bootstrap)
-  cb();
+    // It's very important to trigger this callback method when you are finished
+    // with the bootstrap!  (otherwise your server will never lift, since it's waiting on the bootstrap)
+
+    var brands = [];
+    var clothTypes = [];
+
+    Brands.find().then(function(bands){
+        if(!bands){
+            console.log("!bands");
+        }
+
+    }).catch(function(err){
+        if(err) console.log(err);
+    });
+
+
+    cb();
 };

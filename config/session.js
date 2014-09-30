@@ -66,16 +66,6 @@ module.exports.session = {
      * store                                                                    *
      *                                                                          *
      ***************************************************************************/
-    /*
-    adapter     : 'mongo',
-    auto_reconnect : true,
-    host        : 'localhost',
-    port        : 27017,
-    user        : 'testDB',
-    password    : 'abc123',
-    db    : 'testDB',
-    collection  : 'sessions'*/
-
     adapter: 'mongo',
     auto_reconnect: true,
     // host: 'localhost',

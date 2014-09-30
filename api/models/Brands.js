@@ -13,14 +13,6 @@ module.exports = {
         name : {
             type: 'string',
             required: true
-        },
-
-        status : {
-            type: 'integer'
-        },
-
-        order : {
-            type: 'integer'
         }
     }
 };
