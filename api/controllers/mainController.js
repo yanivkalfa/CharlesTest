@@ -23,8 +23,11 @@ module.exports = {
 
 
     search : function(req, res) {
-        console.log(req.allParams());
-        return res.view();
+        var search = req.params('search');
+
+        if(!search) return res.json({data : "", status : false});
+
+        return res.json({data : search.match(/\S+/g), status : true});
     },
 
     /**
