@@ -13,9 +13,9 @@
             console.log("searchTermToLower", searchTermToLower);
             console.log("searchTerm", searchTerm);
 
-            if(angular.isArray(results.brands)){
+            if(angular.isArray(results.data.brands)){
                 console.log("is array brands");
-                results.brands.forEach(function(brand){
+                results.data.brands.forEach(function(brand){
                     var i = searchTermToLower.indexOf(brand);
                     console.log("foreach brand // index", brand, i);
                     if(i > -1){
@@ -24,8 +24,8 @@
                 });
             }
 
-            if(angular.isArray(results.clothingTypes)){
-                results.clothingTypes.forEach(function(clothingType){
+            if(angular.isArray(results.data.clothingTypes)){
+                results.data.clothingTypes.forEach(function(clothingType){
                     var i = searchTermToLower.indexOf(clothingType);
                     if(i > -1){
                         searchTerm[i] = '<i>' + searchTerm[i] + '</i>';
