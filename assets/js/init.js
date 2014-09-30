@@ -10,9 +10,14 @@
             var searchTerm = $scope.searchTerm.search.match(/\S+/g);
             var searchTermToLower = $scope.searchTerm.search.toLowerCase().match(/\S+/g);
 
+            console.log("searchTermToLower", searchTermToLower);
+            console.log("searchTerm", searchTerm);
+
             if(angular.isArray(results.brands)){
+                console.log("is array brands");
                 results.brands.forEach(function(brand){
                     var i = searchTermToLower.indexOf(brand);
+                    console.log("foreach brand // index", brand, i);
                     if(i > -1){
                         searchTerm[i] = '<strong>' + searchTerm[i] + '</strong>';
                     }
