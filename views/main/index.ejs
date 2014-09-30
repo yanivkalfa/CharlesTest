@@ -3,6 +3,6 @@
         <label>Search:</label>
         <input type="text" ng-model="name">
         <button ng-click="fetch(name)">Search</button><br>
-        <div class="results"> {{searchResults}} </div>
+        <div ng-bind-html="searchResults"></div>
     </div>
 </div>

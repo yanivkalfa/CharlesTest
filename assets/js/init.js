@@ -10,14 +10,9 @@
             var searchTerm = $scope.searchTerm.search.match(/\S+/g);
             var searchTermToLower = $scope.searchTerm.search.toLowerCase().match(/\S+/g);
 
-            console.log("searchTermToLower", searchTermToLower);
-            console.log("searchTerm", searchTerm);
-
             if(angular.isArray(results.data.brands)){
-                console.log("is array brands");
                 results.data.brands.forEach(function(brand){
                     var i = searchTermToLower.indexOf(brand);
-                    console.log("foreach brand // index", brand, i);
                     if(i > -1){
                         searchTerm[i] = '<strong>' + searchTerm[i] + '</strong>';
                     }
@@ -33,9 +28,6 @@
                 })
             }
 
-
-            var toreturn = searchTerm.join(" ");
-            console.log(searchTerm, toreturn);
             return searchTerm.join(" ");
         };
 
@@ -64,15 +56,8 @@
 
     }
 
-    angular.module('CharlesTest', ['ng'])
+    angular.module('CharlesTest', ['ng' , 'ngSanitize'])
         .controller('charlesTestCtrl', ["$scope", "$http", charlesTestCtrl]);
-
-
-
-    /*angular.module('CharlesTest', ['ng'])
-        .service('api', [api])
-        .controller('charlesTestCtrl', ["$scope", "$http", "api", charlesTestCtrl]);
-        */
 
 
 
