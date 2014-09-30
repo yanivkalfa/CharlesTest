@@ -28,6 +28,9 @@
                 })
             }
 
+
+            var toreturn = searchTerm.join(" ");
+            console.log(searchTerm, toreturn);
             return searchTerm.join(" ");
         };
 
@@ -46,7 +49,7 @@
             }).success(function(data, status) {
                 $scope.searchResults = false;
                 if(data.status){
-                    $scope.searchResults = handleResults(data, status);
+                    $scope.searchResults = handleResults(data);
                 }
             }).error(function(data, status) {
                 $scope.searchResults = false;
