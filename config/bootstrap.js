@@ -17,12 +17,9 @@ module.exports.bootstrap = function(cb) {
     var clothTypes = [];
 
     Brands.find().then(function(bands){
-        if(!bands){
+        if(bands.length <= 0){
             console.log("!bands");
         }
-
-        console.log(bands);
-
     }).catch(function(err){
         if(err) console.log(err);
     });
