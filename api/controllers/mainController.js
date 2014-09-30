@@ -27,10 +27,12 @@ module.exports = {
         if(!search) return res.json({data : "", status : false});
         search = search.toLowerCase().match(/\S+/g);
         if(!Array.isArray(search) || search.length <= 0) return res.json({data : "", status : false});
+
         var results = {"brands" : [], "clothingTypes" : []};
 
         Brands.find({nameToLower : search}).then(function(brands){
             ClothingTypes.find({nameToLower : search}).then(function(clothingTypes){
+
                 results.brands = brands.map(function(brand){
                     return brand.nameToLower;
                 });
@@ -40,6 +42,7 @@ module.exports = {
                 });
 
                 return res.json({data : results, status : true});
+
             }).catch(function(err){
                 console.log("ClothingTypes",err);
                 if(err) return res.json({data : "", status : false});

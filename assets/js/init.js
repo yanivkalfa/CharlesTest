@@ -1,16 +1,35 @@
 
 (function (undefined) {
     'use strict';
-    var handleResults = function(results){
-
-
-
-        return results;
-    };
 
     function charlesTestCtrl($scope, $http) {
         var method = 'POST';
         var url = '/search';
+
+        var handleResults = function(results){
+            var searchTerm = $scope.searchTerm.match(/\S+/g);
+            var searchTermToLower = $scope.searchTerm.toLowerCase().match(/\S+/g);
+
+            if(angular.isArray(results.brands)){
+                results.brands.forEach(function(brand){
+                    var i = searchTermToLower.indexOf(brand);
+                    if(i > -1){
+                        searchTerm[i] = '<strong>' + searchTerm[i] + '</strong>';
+                    }
+                });
+            }
+
+            if(angular.isArray(results.clothingTypes)){
+                results.clothingTypes.forEach(function(clothingType){
+                    var i = searchTermToLower.indexOf(clothingType);
+                    if(i > -1){
+                        searchTerm[i] = '<i>' + searchTerm[i] + '</i>';
+                    }
+                })
+            }
+
+            return searchTerm.join(" ");
+        };
 
         $scope.fetch = function(search) {
             console.log(search);
@@ -25,13 +44,11 @@
                 url: url,
                 data : $scope.searchTerm
             }).success(function(data, status) {
-                console.log("success",data, status);
                 $scope.searchResults = false;
                 if(data.status){
                     $scope.searchResults = handleResults(data, status);
                 }
             }).error(function(data, status) {
-                console.log("error",data, status);
                 $scope.searchResults = false;
             });
         };
