@@ -23,6 +23,7 @@ module.exports = {
 
 
     search : function(req, res) {
+        console.log(req.allParams());
         return res.view();
     },
 
