@@ -31,11 +31,11 @@ module.exports.bootstrap = function(cb) {
 
     Brands.find().then(function(bands){
         if(bands.length <= 0){
-            Brands.creat(brands).then(function(Brand){
+            Brands.create(brands).then(function(Brand){
                console.log(Brand);
             });
 
-            ClothingTypes.creat(clothTypes).then(function(ClothingType){
+            ClothingTypes.create(clothTypes).then(function(ClothingType){
                 console.log(ClothingType);
             });
         }
