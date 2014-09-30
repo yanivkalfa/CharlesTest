@@ -7,23 +7,39 @@
         var url = '/search';
 
         var handleResults = function(results){
-            var searchTerm = $scope.searchTerm.search.match(/\S+/g);
-            var searchTermToLower = $scope.searchTerm.search.toLowerCase().match(/\S+/g);
+            var searchTerm = $scope.searchTerm.search;
+            var searchTermToLower = $scope.searchTerm.search.toLowerCase();
 
             if(angular.isArray(results.data.brands)){
                 results.data.brands.forEach(function(brand){
-                    var i = searchTermToLower.indexOf(brand);
-                    if(i > -1){
-                        searchTerm[i] = '<strong>' + searchTerm[i] + '</strong>';
+                    var startPosition = searchTermToLower.indexOf(brand),
+                        endPosition = brand.length,
+                        stringStart = '',
+                        stringEnd = '',
+                        foundBrand = '';
+
+                    if(startPosition > -1){
+                        stringStart = searchTerm.slice(0,startPosition);
+                        foundBrand = searchTerm.slice(startPosition,endPosition);
+                        stringEnd = searchTerm.slice(endPosition,-1);
+                        searchTerm = stringStart + '<strong>' + foundBrand + '</strong>' + stringEnd;
                     }
                 });
             }
 
             if(angular.isArray(results.data.clothingTypes)){
                 results.data.clothingTypes.forEach(function(clothingType){
-                    var i = searchTermToLower.indexOf(clothingType);
-                    if(i > -1){
-                        searchTerm[i] = '<i>' + searchTerm[i] + '</i>';
+                    var startPosition = searchTermToLower.indexOf(clothingType),
+                        endPosition = clothingType.length,
+                        stringStart = '',
+                        stringEnd = '',
+                        foundBrand = '';
+
+                    if(startPosition > -1){
+                        stringStart = searchTerm.slice(0,startPosition);
+                        foundBrand = searchTerm.slice(startPosition,endPosition);
+                        stringEnd = searchTerm.slice(endPosition,-1);
+                        searchTerm = stringStart + '<strong>' + foundBrand + '</strong>' + stringEnd;
                     }
                 })
             }

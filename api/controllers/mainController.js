@@ -25,21 +25,25 @@ module.exports = {
     search : function(req, res) {
         var search = req.param('search');
         if(!search) return res.json({data : "", status : false});
-        search = search.toLowerCase().match(/\S+/g);
-        if(!Array.isArray(search) || search.length <= 0) return res.json({data : "", status : false});
+        search = search.toLowerCase();
 
         var results = {"brands" : [], "clothingTypes" : []};
 
-        Brands.find({nameToLower : search}).then(function(brands){
-            ClothingTypes.find({nameToLower : search}).then(function(clothingTypes){
+        Brands.find().then(function(brands){
+            ClothingTypes.find().then(function(clothingTypes){
+                var i = 0;
 
-                results.brands = brands.map(function(brand){
-                    return brand.nameToLower;
-                });
+                for(i = 0; i < brands.length; i++) {
+                    if (search.indexOf(brands[i].nameToLower) > -1){
+                        results.brands.push(brands[i]);
+                    }
+                }
 
-                results.clothingTypes = clothingTypes.map(function(clothingType){
-                    return clothingType.nameToLower;
-                });
+                for(i = 0; i < clothingTypes.length; i++) {
+                    if (search.indexOf(clothingTypes[i].nameToLower) > -1){
+                        results.clothingTypes.push(clothingTypes[i]);
+                    }
+                }
 
                 return res.json({data : results, status : true});
 
