@@ -7,9 +7,8 @@
         var url = '/search';
 
         var handleResults = function(results){
-            console.log($scope.searchTerm, 'got here');
-            var searchTerm = $scope.searchTerm.match(/\S+/g);
-            var searchTermToLower = $scope.searchTerm.toLowerCase().match(/\S+/g);
+            var searchTerm = $scope.searchTerm.search.match(/\S+/g);
+            var searchTermToLower = $scope.searchTerm.search.toLowerCase().match(/\S+/g);
 
             if(angular.isArray(results.brands)){
                 results.brands.forEach(function(brand){
