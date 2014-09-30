@@ -74,7 +74,7 @@ module.exports.session = {
     password    : 'abc123',
     db          : 'testDB',
     collection  : 'sessions',
-    auto_reconnect: true
+    auto_reconnect : true
 
 
     /***************************************************************************
