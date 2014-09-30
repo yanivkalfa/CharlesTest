@@ -21,6 +21,8 @@ module.exports.bootstrap = function(cb) {
             console.log("!bands");
         }
 
+        console.log(bands);
+
     }).catch(function(err){
         if(err) console.log(err);
     });
