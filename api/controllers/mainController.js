@@ -29,7 +29,8 @@ module.exports = {
 
         var results = {"brands" : [], "clothingTypes" : []};
 
-        Brands.find().then(function(brands){
+        Brands.find({nameToLower : {'like' :  '%' + search}}).then(function(brands){
+            console.log(brands);
             ClothingTypes.find().then(function(clothingTypes){
                 var i = 0;
 
