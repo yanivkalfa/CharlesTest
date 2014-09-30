@@ -35,6 +35,11 @@ module.exports.routes = {
     '/': {
         controller: 'main',
         action : "index"
+    },
+
+    '/search': {
+        controller: 'main',
+        action : "search"
     }
 
     //auth/facebook/callback

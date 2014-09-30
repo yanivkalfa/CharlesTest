@@ -21,6 +21,11 @@ module.exports = {
         return res.view();
     },
 
+
+    search : function(req, res) {
+        return res.view();
+    },
+
     /**
      * Overrides for the settings in `config/controllers.js`
      * (specific to UserController)
