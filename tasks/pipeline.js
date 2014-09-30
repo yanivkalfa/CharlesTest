@@ -33,7 +33,6 @@ var jsFilesToInject = [
     '/bower/angular/angular.min.js',
     //'/bower/angular-sanitize/angular-sanitize.min.js',
 
-    '/js/_customers.js',
     '/js/app.js',
     '/js/init.js',
     '/js/sails.io.js',
