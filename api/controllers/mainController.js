@@ -24,10 +24,23 @@ module.exports = {
 
     search : function(req, res) {
         var search = req.param('search');
-
         if(!search) return res.json({data : "", status : false});
+        search = search.match(/\S+/g);
+        if(!Array.isArray(search) || search.length <= 0) return res.json({data : "", status : false});
 
-        return res.json({data : search.match(/\S+/g), status : true});
+        var results = {"brands" : [], "clothTypes" : []};
+
+        Brands.find({name : search}).then(function(brands){
+            results.brands = brands;
+            ClothTypes.find({name : search}).then(function(clothTypes){
+                results.clothTypes = clothTypes;
+                return res.json({data : results, status : true});
+            }).catch(function(err){
+                if(err) return res.json({data : "", status : false});
+            });
+        }).catch(function(err){
+            if(err) return res.json({data : "", status : false});
+        });
     },
 
     /**
