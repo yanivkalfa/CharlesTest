@@ -31,27 +31,25 @@ module.exports = {
 
         Brands.find().then(function(brands){
             ClothingTypes.find().then(function(clothingTypes){
-                var i = 0, prevLength = 0, index;
+                var i = 0, prevLength = 0;
 
                 for(i = 0; i < brands.length; i++) {
                     if (search.indexOf(brands[i].nameToLower) > -1){
-                        if(brands[i].length > prevLength){
-                            index = i;
+                        if(brands[i].nameToLower.length > prevLength){
+                            results.brands = brands[i].nameToLower;
                         }
-                        prevLength = brands[i].length;
+                        prevLength = brands[i].nameToLower.length;
                     }
                 }
-                results.brands = brands[index].nameToLower;
 
                 for(i = 0; i < clothingTypes.length; i++) {
                     if (search.indexOf(clothingTypes[i].nameToLower) > -1){
-                        if(clothingTypes[i].length > prevLength){
-                            index = i;
+                        if(clothingTypes[i].nameToLower.length > prevLength){
+                            results.clothingTypes = clothingTypes[i].nameToLower;
                         }
-                        prevLength = clothingTypes[i].length;
+                        prevLength = clothingTypes[i].nameToLower.length;
                     }
                 }
-                results.clothingTypes = clothingTypes[index].nameToLower;
 
                 return res.json({data : results, status : true});
 
