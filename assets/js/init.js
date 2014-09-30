@@ -21,7 +21,7 @@
 
             $http({
                 method: method,
-                url: method,
+                url: url,
                 data : $scope.searchTerm
             }).success(function(data, status) {
                 console.log(data, status);
