@@ -31,7 +31,7 @@ var jsFilesToInject = [
     '/bower/jquery/dist/jquery.min.js',
     '/bower/jquery-ui/jquery-ui.min.js',
     '/bower/angular/angular.min.js',
-    '/bower/angular-sanitize/angular-sanitize.min.js',
+    //'/bower/angular-sanitize/angular-sanitize.min.js',
 
     '/js/_customers.js',
     '/js/app.js',
