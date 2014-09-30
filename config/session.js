@@ -82,7 +82,7 @@ module.exports.session = {
     // port: 27017,
     db: 'sails',
     collection: 'sessions',
-    url: 'mongodb://testDB:abc123@localhost:27617/testDB'
+    url: 'mongodb://testDB:abc123@localhost:27017/testDB'
 
 
 
