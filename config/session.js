@@ -72,7 +72,7 @@ module.exports.session = {
     port        : 27017,
     user        : 'testDB',
     password    : 'abc123',
-    db    : 'testDB',
+    db    : 'sails',
     collection  : 'sessions',
     auto_reconnect : true
 
