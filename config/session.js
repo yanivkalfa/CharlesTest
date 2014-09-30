@@ -66,7 +66,7 @@ module.exports.session = {
      * store                                                                    *
      *                                                                          *
      ***************************************************************************/
-
+    /*
     adapter     : 'mongo',
     auto_reconnect : true,
     host        : 'localhost',
@@ -74,7 +74,15 @@ module.exports.session = {
     user        : 'testDB',
     password    : 'abc123',
     db    : 'testDB',
-    collection  : 'sessionsa'
+    collection  : 'sessions'*/
+
+    adapter: 'mongo',
+    auto_reconnect: true,
+    // host: 'localhost',
+    // port: 27017,
+    db: 'sails',
+    collection: 'sessions',
+    url: 'mongodb://heroku_app26503043:evh38ktdp08ga11jh8lsl4rim6@dbh61.mongolab.com:27617/heroku_app26503043'
 
 
 
