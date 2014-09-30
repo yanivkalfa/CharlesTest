@@ -30,12 +30,12 @@ module.exports = {
 
         var results = {"brands" : [], "clothingTypes" : []};
 
-        Brands.find({name : search}).then(function(brands){
+        Brands.find({nameToLower : search}).then(function(brands){
             results.brands = brands.map(function(brand){
                 return brand.name;
             });
 
-            ClothingTypes.find({name : {name : search}}).then(function(clothingTypes){
+            ClothingTypes.find({nameToLower : {name : search}}).then(function(clothingTypes){
                 results.clothingTypes = clothingTypes.map(function(clothingType){
                     return clothingType.name;
                 });
