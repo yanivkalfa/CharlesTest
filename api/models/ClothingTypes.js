@@ -12,6 +12,11 @@ module.exports = {
 
         name : {
             type: 'string'
+        },
+
+        nameToLower : {
+            type: 'string',
+            required: true
         }
     }
 

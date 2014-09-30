@@ -31,9 +31,14 @@ module.exports = {
         var results = {"brands" : [], "clothingTypes" : []};
 
         Brands.find({name : search}).then(function(brands){
-            results.brands = brands;
+            results.brands = brands.map(function(brand){
+                return brand.name;
+            });
+
             ClothingTypes.find({name : search}).then(function(clothingTypes){
-                results.clothingTypes = clothingTypes;
+                results.clothingTypes = clothingTypes.map(function(clothingType){
+                    return clothingType.name;
+                });
                 return res.json({data : results, status : true});
             }).catch(function(err){
                 console.log("ClothingTypes",err);

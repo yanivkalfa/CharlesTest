@@ -13,6 +13,11 @@ module.exports = {
         name : {
             type: 'string',
             required: true
+        },
+
+        nameToLower : {
+            type: 'string',
+            required: true
         }
     }
 };
