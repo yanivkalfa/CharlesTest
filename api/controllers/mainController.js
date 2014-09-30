@@ -23,7 +23,7 @@ module.exports = {
 
 
     search : function(req, res) {
-        var search = req.params('search');
+        var search = req.param('search');
 
         if(!search) return res.json({data : "", status : false});
 
