@@ -1,59 +1,51 @@
 
 (function (undefined) {
     'use strict';
+    var handleResults = function(results){
 
 
-    function api() {
-        var _data = {
-            users: [
-                {
-                    id: 142,
-                    name: 'Jack',
-                    type: 'admin',
-                    age: 32,
-                    skills: ['unix', 'windows', 'http']
-                },
-                {
-                    id: 523,
-                    name: 'Bob',
-                    type: 'customer',
-                    age: 23,
-                    likes: ['shoes', 't-shirts', '<b>Clubs</b>&nbsp;<br/><i>bars</i>']
+
+        return results;
+    };
+
+    function charlesTestCtrl($scope, $http) {
+        var method = 'GET';
+        var url = '/search';
+
+        $scope.fetch = function(search) {
+            if(!search) return;
+
+            $scope.code = null;
+            $scope.searchTerm = {"search" : search};
+            $scope.response = null;
+
+            $http({
+                method: method,
+                url: method,
+                data : $scope.searchTerm
+            }).success(function(data, status) {
+                console.log(data, status);
+                if(status){
+                    $scope.searchResults = handleResults(data, status);
                 }
-            ],
-
-            responsibilities: {
-                142: [
-                    {
-                        name: 'project 1'
-                    },
-                    {
-                        name: 'project 2'
-                    }
-                ]
-            },
-
-            purchasedItems: {
-                523: [
-                    {
-                        name: 'adidas sneakers #24124'
-                    },
-                    {
-                        name: 'Jack Daniel\'s 18 years'
-                    }
-                ]
-            }
-
+            }).error(function(data, status) {
+                console.log(data, status);
+                $scope.searchResults = false;
+            });
         };
 
-        this.getData = function (resourceName) { return _data[resourceName]; };
+
     }
 
-    function charlesTestCtrl($scope, api) {}
-
     angular.module('CharlesTest', ['ng'])
+        .controller('charlesTestCtrl', ["$scope", "$http", charlesTestCtrl]);
+
+
+
+    /*angular.module('CharlesTest', ['ng'])
         .service('api', [api])
-        .controller('charlesTestCtrl', ["$scope","api", charlesTestCtrl]);
+        .controller('charlesTestCtrl', ["$scope", "$http", "api", charlesTestCtrl]);
+        */
 
 
 
