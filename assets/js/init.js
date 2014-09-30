@@ -8,15 +8,20 @@
 
         var handleResults = function(results){
             console.log(results);
-            var searchTerm = $scope.searchTerm.search;
-            var searchTermToLower = $scope.searchTerm.search.toLowerCase();
+            var searchTerm = $scope.searchTerm.search,
+                searchTermToLower = $scope.searchTerm.search.toLowerCase(),
+                startPosition,
+                endPosition,
+                stringStart,
+                stringEnd,
+                foundBrand;
 
             if(results.data.brand != ''){
-                var startPosition = searchTermToLower.indexOf(results.data.brand),
-                    endPosition = results.data.brand.length,
-                    stringStart = '',
-                    stringEnd = '',
-                    foundBrand = '';
+                startPosition = searchTermToLower.indexOf(results.data.brand);
+                endPosition = results.data.brand.length;
+                stringStart = '';
+                stringEnd = '';
+                foundBrand = '';
 
                 if(startPosition > -1){
                     stringStart = searchTerm.slice(0,startPosition);
@@ -27,11 +32,11 @@
             }
 
             if(results.data.clothingType != ''){
-                var startPosition = searchTermToLower.indexOf(results.data.clothingType),
-                    endPosition = results.data.clothingType.length,
-                    stringStart = '',
-                    stringEnd = '',
-                    foundBrand = '';
+                startPosition = searchTermToLower.indexOf(results.data.clothingType);
+                endPosition = results.data.clothingType.length;
+                stringStart = '';
+                stringEnd = '';
+                foundBrand = '';
 
                 if(startPosition > -1){
                     stringStart = searchTerm.slice(0,startPosition);
