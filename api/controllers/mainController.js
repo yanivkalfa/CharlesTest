@@ -35,13 +35,13 @@ module.exports = {
 
                 for(i = 0; i < brands.length; i++) {
                     if (search.indexOf(brands[i].nameToLower) > -1){
-                        results.brands.push(brands[i]);
+                        results.brands.push(brands[i].nameToLower);
                     }
                 }
 
                 for(i = 0; i < clothingTypes.length; i++) {
                     if (search.indexOf(clothingTypes[i].nameToLower) > -1){
-                        results.clothingTypes.push(clothingTypes[i]);
+                        results.clothingTypes.push(clothingTypes[i].nameToLower);
                     }
                 }
 
