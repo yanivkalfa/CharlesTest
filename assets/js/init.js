@@ -25,12 +25,13 @@
                 url: url,
                 data : $scope.searchTerm
             }).success(function(data, status) {
-                console.log(data, status);
-                if(status){
+                console.log("success",data, status);
+                $scope.searchResults = false;
+                if(data.status){
                     $scope.searchResults = handleResults(data, status);
                 }
             }).error(function(data, status) {
-                console.log(data, status);
+                console.log("error",data, status);
                 $scope.searchResults = false;
             });
         };

@@ -28,17 +28,19 @@ module.exports = {
         search = search.match(/\S+/g);
         if(!Array.isArray(search) || search.length <= 0) return res.json({data : "", status : false});
 
-        var results = {"brands" : [], "clothTypes" : []};
+        var results = {"brands" : [], "clothingTypes" : []};
 
         Brands.find({name : search}).then(function(brands){
             results.brands = brands;
-            ClothTypes.find({name : search}).then(function(clothTypes){
-                results.clothTypes = clothTypes;
+            ClothingTypes.find({name : search}).then(function(clothingTypes){
+                results.clothingTypes = clothingTypes;
                 return res.json({data : results, status : true});
             }).catch(function(err){
+                console.log("ClothingTypes",err);
                 if(err) return res.json({data : "", status : false});
             });
         }).catch(function(err){
+            console.log("Brands",err);
             if(err) return res.json({data : "", status : false});
         });
     },
