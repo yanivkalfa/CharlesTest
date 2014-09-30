@@ -43,7 +43,7 @@ module.exports.bootstrap = function(cb) {
         if(err) console.log(err);
     });
 
-
+    /*
     Brands.find().then(function(bands){
         bands.map(function(band){
             band.nameToLower = band.name.toLowerCase();
@@ -57,6 +57,7 @@ module.exports.bootstrap = function(cb) {
             ClothingType.save(function(err) {if(err)console.log(err);});
         })
     });
+    */
 
     cb();
 };

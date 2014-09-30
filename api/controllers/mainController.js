@@ -25,7 +25,7 @@ module.exports = {
     search : function(req, res) {
         var search = req.param('search');
         if(!search) return res.json({data : "", status : false});
-        search = search.match(/\S+/g);
+        search = search.toLowerCase().match(/\S+/g);
         if(!Array.isArray(search) || search.length <= 0) return res.json({data : "", status : false});
 
         var results = {"brands" : [], "clothingTypes" : []};
