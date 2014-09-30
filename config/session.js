@@ -68,13 +68,14 @@ module.exports.session = {
      ***************************************************************************/
 
     adapter     : 'mongo',
+    auto_reconnect : true,
     host        : 'localhost',
     port        : 27017,
     user        : 'testDB',
     password    : 'abc123',
     db    : 'testDB',
-    collection  : 'sessionsa',
-    auto_reconnect : true
+    collection  : 'sessionsa'
+
 
 
     /***************************************************************************
