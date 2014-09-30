@@ -9,10 +9,11 @@
     };
 
     function charlesTestCtrl($scope, $http) {
-        var method = 'GET';
+        var method = 'POST';
         var url = '/search';
 
         $scope.fetch = function(search) {
+            console.log(search);
             if(!search) return;
 
             $scope.code = null;
