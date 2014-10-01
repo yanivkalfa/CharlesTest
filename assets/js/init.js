@@ -7,50 +7,42 @@
         var url = '/search';
 
         var handleResults = function(results){
-            console.log(results);
             var searchTerm = $scope.searchTerm.search,
-                searchTermToLower = $scope.searchTerm.search.toLowerCase(),
-                startPosition,
-                endPosition,
-                stringStart,
-                stringEnd,
-                foundBrand;
+                searchTermToLower = $scope.searchTerm.search.toLowerCase();
 
-            if(results.data.brand != ''){
-                startPosition = searchTermToLower.indexOf(results.data.brand);
-                endPosition = results.data.brand.length;
-                stringStart = '';
-                stringEnd = '';
-                foundBrand = '';
+            if(angular.isArray(results.data)){
+                results.data.forEach(function(found){
+                    var startPosition = searchTermToLower.indexOf(found.keyword),
+                        endPosition = found.keyword.length,
+                        stringStart = '',
+                        stringEnd = '',
+                        foundBrand = '';
 
-                if(startPosition > -1){
-                    stringStart = searchTerm.slice(0,startPosition);
-                    foundBrand = searchTerm.slice(startPosition,endPosition);
-                    stringEnd = searchTerm.slice(endPosition,-1);
-                    searchTerm = stringStart + '<strong>' + foundBrand + '</strong>' + stringEnd;
-                }
+                    if(startPosition > -1){
+                        stringStart = searchTerm.slice(0,startPosition);
+                        foundBrand = searchTerm.slice(startPosition,endPosition);
+                        stringEnd = searchTerm.slice(endPosition,-1);
+
+                        if(found.type === "brand")
+                        {
+                            searchTerm = stringStart + '<strong>' + foundBrand + '</strong>' + stringEnd;
+                        }
+                        else
+                        {
+                            searchTerm = stringStart + '<i>' + foundBrand + '</i>' + stringEnd;
+                        }
+
+                    }
+
+                });
             }
 
-            if(results.data.clothingType != ''){
-                startPosition = searchTermToLower.indexOf(results.data.clothingType);
-                endPosition = results.data.clothingType.length;
-                stringStart = '';
-                stringEnd = '';
-                foundBrand = '';
-
-                if(startPosition > -1){
-                    stringStart = searchTerm.slice(0,startPosition);
-                    foundBrand = searchTerm.slice(startPosition,endPosition);
-                    stringEnd = searchTerm.slice(endPosition,-1);
-                    searchTerm = stringStart + '<strong>' + foundBrand + '</strong>' + stringEnd;
-                }
-            }
+            console.log(searchTerm);
 
             return searchTerm;
         };
 
         $scope.fetch = function(search) {
-            console.log(search);
             if(!search) return;
 
             $scope.code = null;

@@ -29,29 +29,40 @@ module.exports = {
 
         var results = {"brand" : '', "clothingType" : ''};
 
+        var found = [];
+
         Brands.find().then(function(brands){
             ClothingTypes.find().then(function(clothingTypes){
-                var i = 0, prevLength = 0;
+                var i = 0, prevLength = 0,keyword = false;
 
                 for(i = 0; i < brands.length; i++) {
                     if (search.indexOf(brands[i].nameToLower) > -1){
                         if(brands[i].nameToLower.length > prevLength){
                             results.brand = brands[i].nameToLower;
+                            keyword = brands[i].nameToLower;
+
                         }
                         prevLength = brands[i].nameToLower.length;
                     }
                 }
-
+                if(keyword){
+                    found.push({"keyword" : keyword, "type" : "brand"});
+                }
+                keyword = false;
                 for(i = 0; i < clothingTypes.length; i++) {
                     if (search.indexOf(clothingTypes[i].nameToLower) > -1){
                         if(clothingTypes[i].nameToLower.length > prevLength){
                             results.clothingType = clothingTypes[i].nameToLower;
+                            keyword = clothingTypes[i].nameToLower;
                         }
                         prevLength = clothingTypes[i].nameToLower.length;
                     }
                 }
+                if(keyword){
+                    found.push({"keyword" : keyword, "type" : "clothingType"});
+                }
 
-                return res.json({data : results, status : true});
+                return res.json({data : found, status : true});
 
             }).catch(function(err){
                 console.log("ClothingTypes",err);
