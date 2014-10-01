@@ -8,7 +8,9 @@
 
         var handleResults = function(results){
             var searchTerm = $scope.searchTerm.search,
-                searchTermToLower = $scope.searchTerm.search.toLowerCase();
+                searchTermToLower = searchTerm.toLowerCase();
+            console.log(searchTerm.length);
+            console.log(searchTermToLower.length);
 
             if(angular.isArray(results.data)){
                 results.data.forEach(function(found){
