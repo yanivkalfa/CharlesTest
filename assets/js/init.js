@@ -15,7 +15,7 @@
                     console.log("BEFORE searchTermToLower: ", '|'+searchTermToLower+'|');
                     console.log("BEFORE searchTerm       : ", '|'+searchTerm+'|');
                     var startPosition = searchTermToLower.indexOf(found.keyword),
-                        endPosition = found.keyword.length,
+                        endPosition = startPosition+ found.keyword.length,
                         stringStart = '',
                         stringEnd = '',
                         foundBrand = '';
