@@ -9,12 +9,14 @@
         var handleResults = function(results){
             var searchTerm = $scope.searchTerm.search,
                 searchTermToLower = searchTerm.toLowerCase();
-            console.log(searchTerm.length);
-            console.log(searchTermToLower.length);
+            console.log("searchTerm.length", searchTerm.length);
+            console.log("searchTermToLower.length",searchTermToLower.length);
 
             if(angular.isArray(results.data)){
                 results.data.forEach(function(found){
-                    console.log(found, searchTermToLower);
+                    console.log("found", found);
+                    console.log("searchTermToLower", searchTermToLower);
+                    console.log("searchTerm", searchTerm);
                     var startPosition = searchTermToLower.indexOf(found.keyword),
                         endPosition = found.keyword.length,
                         stringStart = '',
