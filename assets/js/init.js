@@ -12,7 +12,7 @@
 
             if(angular.isArray(results.data)){
                 results.data.forEach(function(found){
-                    console.log(found);
+                    console.log(found, searchTermToLower);
                     var startPosition = searchTermToLower.indexOf(found.keyword),
                         endPosition = found.keyword.length,
                         stringStart = '',
