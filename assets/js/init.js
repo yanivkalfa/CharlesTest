@@ -14,7 +14,7 @@
                 results.data.forEach(function(found){
                     console.log(found, searchTermToLower);
                     var startPosition = searchTermToLower.indexOf(found.keyword),
-                        endPosition = found.keyword.length,
+                        endPosition = found.keyword.length-1,
                         stringStart = '',
                         stringEnd = '',
                         foundBrand = '';
