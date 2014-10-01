@@ -12,8 +12,8 @@
 
             if(angular.isArray(results.data)){
                 results.data.forEach(function(found){
-                    console.log("BEFORE searchTermToLower", '|'+searchTermToLower+'|');
-                    console.log("BEFORE searchTerm", '|'+searchTerm+'|');
+                    console.log("BEFORE searchTermToLower: ", '|'+searchTermToLower+'|');
+                    console.log("BEFORE searchTerm       : ", '|'+searchTerm+'|');
                     var startPosition = searchTermToLower.indexOf(found.keyword),
                         endPosition = found.keyword.length,
                         stringStart = '',
@@ -22,11 +22,11 @@
 
                     if(startPosition > -1){
                         stringStart = searchTerm.slice(0,startPosition);
-                        console.log("stringStart: " , '|'+stringStart+'|');
+                        console.log("stringStart : " , '|'+stringStart+'|', ' From : 0 To : ' + startPosition);
                         foundBrand = searchTerm.slice(startPosition,endPosition);
-                        console.log("foundBrand: " , '|'+foundBrand+'|');
+                        console.log("foundBrand  : " , '|'+foundBrand+'|', ' From : ' + startPosition + ' To : ' + endPosition);
                         stringEnd = searchTerm.slice(endPosition,searchTermToLower.length);
-                        console.log("stringEnd: " , '|'+stringEnd+'|');
+                        console.log("stringEnd   : " , '|'+stringEnd+'|', ' From : ' + endPosition + ' To : ' + searchTermToLower.length);
 
                         if(found.type == "brand")
                         {
@@ -40,8 +40,8 @@
                         }
                     }
 
-                    console.log("AFTER searchTermToLower", '|'+searchTermToLower+'|');
-                    console.log("AFTER searchTerm", '|'+searchTerm+'|');
+                    console.log("AFTER searchTermToLower: ", '|'+searchTermToLower+'|');
+                    console.log("AFTER searchTerm       : ", '|'+searchTerm+'|');
 
                 });
             }
