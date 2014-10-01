@@ -26,9 +26,6 @@ module.exports = {
         var search = req.param('search');
         if(!search) return res.json({data : "", status : false});
         search = search.toLowerCase();
-
-        var results = {"brand" : '', "clothingType" : ''};
-
         var found = [];
 
         Brands.find().then(function(brands){
@@ -38,7 +35,6 @@ module.exports = {
                 for(i = 0; i < brands.length; i++) {
                     if (search.indexOf(brands[i].nameToLower) > -1){
                         if(brands[i].nameToLower.length > prevLength){
-                            results.brand = brands[i].nameToLower;
                             keyword = brands[i].nameToLower;
 
                         }
@@ -49,10 +45,10 @@ module.exports = {
                     found.push({"keyword" : keyword, "type" : "brand"});
                 }
                 keyword = false;
+                prevLength = 0;
                 for(i = 0; i < clothingTypes.length; i++) {
                     if (search.indexOf(clothingTypes[i].nameToLower) > -1){
                         if(clothingTypes[i].nameToLower.length > prevLength){
-                            results.clothingType = clothingTypes[i].nameToLower;
                             keyword = clothingTypes[i].nameToLower;
                         }
                         prevLength = clothingTypes[i].nameToLower.length;
