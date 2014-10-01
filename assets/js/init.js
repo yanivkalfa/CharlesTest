@@ -14,7 +14,7 @@
                 results.data.forEach(function(found){
                     console.log(found, searchTermToLower);
                     var startPosition = searchTermToLower.indexOf(found.keyword),
-                        endPosition = found.keyword.length-1,
+                        endPosition = found.keyword.length,
                         stringStart = '',
                         stringEnd = '',
                         foundBrand = '';
@@ -22,7 +22,7 @@
                     if(startPosition > -1){
                         stringStart = searchTerm.slice(0,startPosition);
                         foundBrand = searchTerm.slice(startPosition,endPosition);
-                        stringEnd = searchTerm.slice(endPosition,-1);
+                        stringEnd = searchTerm.slice(endPosition,searchTermToLower.length);
 
                         if(found.type == "brand")
                         {
