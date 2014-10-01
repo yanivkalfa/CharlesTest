@@ -26,12 +26,13 @@
                         if(found.type === "brand")
                         {
                             searchTerm = stringStart + '<strong>' + foundBrand + '</strong>' + stringEnd;
+                            searchTermToLower = searchTerm.toLowerCase();
                         }
                         else
                         {
                             searchTerm = stringStart + '<i>' + foundBrand + '</i>' + stringEnd;
+                            searchTermToLower = searchTerm.toLowerCase();
                         }
-
                     }
 
                 });
