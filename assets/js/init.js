@@ -9,8 +9,6 @@
         var handleResults = function(results){
             var searchTerm = $scope.searchTerm.search,
                 searchTermToLower = searchTerm.toLowerCase();
-            console.log("searchTerm.length", searchTerm.length);
-            console.log("searchTermToLower.length",searchTermToLower.length);
 
             if(angular.isArray(results.data)){
                 results.data.forEach(function(found){
@@ -25,8 +23,11 @@
 
                     if(startPosition > -1){
                         stringStart = searchTerm.slice(0,startPosition);
+                        console.log("stringStart: " , stringStart);
                         foundBrand = searchTerm.slice(startPosition,endPosition);
+                        console.log("foundBrand: " , foundBrand);
                         stringEnd = searchTerm.slice(endPosition,searchTermToLower.length);
+                        console.log("stringEnd: " , stringEnd);
 
                         if(found.type == "brand")
                         {
@@ -35,11 +36,13 @@
                         }
                         else
                         {
-                            console.log('elsing');
                             searchTerm = stringStart + '<i>' + foundBrand + '</i>' + stringEnd;
                             searchTermToLower = searchTerm.toLowerCase();
                         }
                     }
+
+                    console.log("AFTER searchTermToLower", searchTermToLower);
+                    console.log("AFTER searchTerm", searchTerm);
 
                 });
             }
