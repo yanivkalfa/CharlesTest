@@ -12,6 +12,7 @@
 
             if(angular.isArray(results.data)){
                 results.data.forEach(function(found){
+                    console.log(found);
                     var startPosition = searchTermToLower.indexOf(found.keyword),
                         endPosition = found.keyword.length,
                         stringStart = '',
@@ -23,13 +24,14 @@
                         foundBrand = searchTerm.slice(startPosition,endPosition);
                         stringEnd = searchTerm.slice(endPosition,-1);
 
-                        if(found.type === "brand")
+                        if(found.type == "brand")
                         {
                             searchTerm = stringStart + '<strong>' + foundBrand + '</strong>' + stringEnd;
                             searchTermToLower = searchTerm.toLowerCase();
                         }
                         else
                         {
+                            console.log('elsing');
                             searchTerm = stringStart + '<i>' + foundBrand + '</i>' + stringEnd;
                             searchTermToLower = searchTerm.toLowerCase();
                         }
